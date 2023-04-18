@@ -31,7 +31,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -49,9 +49,7 @@ return {
       -- end
     },
     -- enable servers that you already have installed without mason
-    servers = {
-      -- "pyright"
-    },
+    servers = {},
   },
 
   -- Configure require("lazy").setup() options
@@ -81,5 +79,14 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.opt.clipboard = "unnamedplus"
+    if vim.fn.has('wsl') == 1 then
+      vim.api.nvim_create_autocmd("TextYankPost", {
+        group = vim.api.nvim_create_augroup("Yank", { clear = true }),
+        callback = function()
+          vim.fn.system("clip.exe", vim.fn.getreg '"')
+        end,
+      })
+    end
   end,
 }

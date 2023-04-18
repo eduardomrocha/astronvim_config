@@ -2,23 +2,42 @@ return {
   -- customize alpha options
   {
     "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+    cmd = "Alpha",
+    opts = function()
+      require("alpha")
+      require("alpha.term")
+      local dashboard = require "alpha.themes.dashboard"
+
+      local button = require("astronvim.utils").alpha_button
+      dashboard.section.buttons.val = {
+        button("LDR n", "  New File  "),
+        button("LDR f f", "  Find File  "),
+        button("LDR f o", "  Recents  "),
+        button("LDR f w", "  Find Word  "),
+        button("LDR f '", "  Bookmarks  "),
+        button("LDR S l", "  Last Session  "),
       }
-      return opts
+
+      dashboard.section.footer.opts.hl = "Type"
+      dashboard.section.header.opts.hl = "AlphaShortcut"
+      dashboard.section.buttons.opts.hl = "AlphaButtons"
+
+      local width = 46
+      local height = 25 -- two pixels per vertical space
+      dashboard.section.terminal.command = "cat | " .. os.getenv("HOME") .. "/.config/nvim/lua/user/art/thisisfine.sh"
+      dashboard.section.terminal.width = width
+      dashboard.section.terminal.height = height
+      dashboard.section.terminal.opts.redraw = true
+
+      dashboard.config.layout = {
+        dashboard.section.terminal,
+        { type = "padding", val = height - 18 },
+        dashboard.section.buttons,
+        dashboard.section.footer,
+      }
+      return dashboard
     end,
+    config = require "plugins.configs.alpha",
   },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },

@@ -5,13 +5,16 @@
 -- automatically pick-up stored data by this setting.)
 return {
   -- first key is the mode
+  -- [] = { "", desc = "" },
   n = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
@@ -20,9 +23,18 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<TAB>"] = { ":bnext<CR>", desc = "Next buffer" },
+    ["<S-TAB>"] = { ":bprevious<CR>", desc = "Previous buffer" },
+    [";"] = { ":", desc = "Ex command line" },
+	  ["<leader>h"] = { ":HopChar2<CR>", desc = "Hop to 2Char" },
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+  },
+  v = {
+    [";"] = { ":", desc = "Ex command line" },
+    -- [">"] = { ">gv", desc = "Tab forward" },
+    -- ["<"] = { "<gv", desc = "Tab backward" },
   },
 }
