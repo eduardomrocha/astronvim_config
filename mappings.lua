@@ -26,7 +26,7 @@ return {
     ["<TAB>"] = { ":bnext<CR>", desc = "Next buffer" },
     ["<S-TAB>"] = { ":bprevious<CR>", desc = "Previous buffer" },
     [";"] = { ":", desc = "Ex command line" },
-	  ["<leader>h"] = { ":HopChar2<CR>", desc = "Hop to 2Char" },
+    ["<leader>h"] = { ":HopChar2<CR>", desc = "Hop to 2Char" },
   },
   t = {
     -- setting a mapping to false will disable it

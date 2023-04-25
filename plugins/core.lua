@@ -4,8 +4,8 @@ return {
     "goolord/alpha-nvim",
     cmd = "Alpha",
     opts = function()
-      require("alpha")
-      require("alpha.term")
+      require "alpha"
+      require "alpha.term"
       local dashboard = require "alpha.themes.dashboard"
 
       local button = require("astronvim.utils").alpha_button
@@ -24,7 +24,7 @@ return {
 
       local width = 46
       local height = 25 -- two pixels per vertical space
-      dashboard.section.terminal.command = "cat | " .. os.getenv("HOME") .. "/.config/nvim/lua/user/art/thisisfine.sh"
+      dashboard.section.terminal.command = "cat | " .. os.getenv "HOME" .. "/.config/nvim/lua/user/art/thisisfine.sh"
       dashboard.section.terminal.width = width
       dashboard.section.terminal.height = height
       dashboard.section.terminal.opts.redraw = true

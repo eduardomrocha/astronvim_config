@@ -2,8 +2,8 @@ return {
   "xorid/swap-split.nvim",
   opts = {
     ignore_filetypes = {
-        "neo-tree"
-    }
+      "neo-tree",
+    },
   },
   event = "VeryLazy",
 }

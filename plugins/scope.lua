@@ -1,7 +1,5 @@
 return {
-  {
-    "tiagovla/scope.nvim",
-    opts = {},
-    event = "VeryLazy",
-  }
+  "tiagovla/scope.nvim",
+  opts = {},
+  event = "VeryLazy",
 }

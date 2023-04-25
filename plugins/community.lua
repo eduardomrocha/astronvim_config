@@ -6,7 +6,6 @@ return {
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
-  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.bars-and-lines.heirline-vscode-winbar" },
   { import = "astrocommunity.bars-and-lines.statuscol-nvim" },
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
@@ -28,14 +27,14 @@ return {
   {
     "folke/trouble.nvim",
     opts = {
-	    use_diagnostic_signs = true,
+      use_diagnostic_signs = true,
     },
   },
   {
     "zbirenbaum/neodim",
     event = "LspAttach",
-    config = function ()
-      require("neodim").setup({
+    config = function()
+      require("neodim").setup {
         alpha = 0.75,
         blend_color = "#000000",
         update_in_insert = {
@@ -46,8 +45,8 @@ return {
           virtual_text = true,
           signs = true,
           underline = true,
-        }
-      })
-    end
+        },
+      }
+    end,
   },
 }

@@ -16,16 +16,13 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
-
   -- Set colorscheme to use
   colorscheme = "astrodark",
-
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
-
   lsp = {
     -- customize lsp formatting options
     formatting = {
@@ -51,7 +48,6 @@ return {
     -- enable servers that you already have installed without mason
     servers = {},
   },
-
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
@@ -62,7 +58,6 @@ return {
       },
     },
   },
-
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -80,12 +75,10 @@ return {
     --   },
     -- }
     vim.opt.clipboard = "unnamedplus"
-    if vim.fn.has('wsl') == 1 then
+    if vim.fn.has "wsl" == 1 then
       vim.api.nvim_create_autocmd("TextYankPost", {
         group = vim.api.nvim_create_augroup("Yank", { clear = true }),
-        callback = function()
-          vim.fn.system("clip.exe", vim.fn.getreg '"')
-        end,
+        callback = function() vim.fn.system("clip.exe", vim.fn.getreg '"') end,
       })
     end
   end,
