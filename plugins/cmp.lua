@@ -18,7 +18,33 @@ return {
     opts = require("astronvim.utils").extend_tbl(opts, {
       sources = cmp.config.sources {
         { name = "codeium", priority = 1000 },
-        { name = "nvim_lsp", priority = 950 },
+        {
+          name = "nvim_lsp",
+          priority = 950,
+          entry_filter = function(entry, context)
+            local kind = entry:get_kind()
+
+            local line = context.cursor_line
+            local col = context.cursor.col
+            local char_before_cursor = string.sub(line, col - 1, col - 1)
+
+            if char_before_cursor == "." then
+              if kind == 2 or kind == 5 then
+                return true
+              else
+                return false
+              end
+            elseif string.match(line, "^%s*%w*$") then
+              if kind == 3 or kind == 6 then
+                return true
+              else
+                return false
+              end
+            end
+
+            return true
+          end,
+        },
         { name = "nvim_lsp_signature_help", priority = 900 },
         { name = "luasnip", priority = 800 },
         { name = "buffer", priority = 700, keyword_length = 5 },
