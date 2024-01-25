@@ -7,6 +7,12 @@ return {
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
+    -- Folding options
+    fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
+    foldenable = true,
+    foldlevel = 99,
+    foldlevelstart = 99,
+    foldcolumn = "1",
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

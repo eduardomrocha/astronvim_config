@@ -15,7 +15,6 @@ return {
         "stylelint_lsp",
         "lua_ls",
         "tsserver",
-        "vimls",
         "yamlls",
       },
     },

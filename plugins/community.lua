@@ -8,7 +8,7 @@ return {
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.bars-and-lines.heirline-vscode-winbar" },
   { import = "astrocommunity.bars-and-lines.statuscol-nvim" },
-  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.code-runner.sniprun" },
   { import = "astrocommunity.color.twilight-nvim" },
   { import = "astrocommunity.debugging.nvim-bqf" },
@@ -17,13 +17,13 @@ return {
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.utility.neodim" },
-  {
-    "m4xshen/smartcolumn.nvim",
-    opts = {
-      colorcolumn = 120,
-      disabled_filetypes = { "help" },
-    },
-  },
+  -- {
+  --   "m4xshen/smartcolumn.nvim",
+  --   opts = {
+  --     colorcolumn = 120,
+  --     disabled_filetypes = { "help" },
+  --   },
+  -- },
   {
     "folke/trouble.nvim",
     opts = {
